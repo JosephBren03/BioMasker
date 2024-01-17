@@ -9,7 +9,7 @@ from torch.utils.data import Dataset, DataLoader
 
 
 class SegDataset(Dataset):
-    def __init__(self, root_dir="data", phase="warmup", split="train", transform=None):
+    def __init__(self, root_dir="data", phase="challenge", split="train", transform=None):
         self.root_dir = Path(root_dir)
         self.img_dir = self.root_dir / phase / "img" / split
         self.ann_dir = self.root_dir / phase / "ann" / split
