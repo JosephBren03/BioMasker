@@ -9,7 +9,7 @@ from torch.utils.data import Dataset, DataLoader
 
 
 class SegDataset(Dataset):
-    def __init__(self, root_dir="data", phase="challenge", split="train", transform=None):
+    def __init__(self, root_dir="data", phase="public", split="train", transform=None):
         self.root_dir = Path(root_dir)
         self.img_dir = self.root_dir / phase / "img" / split
         self.ann_dir = self.root_dir / phase / "ann" / split
@@ -33,7 +33,7 @@ class SegDataset(Dataset):
 
 
 class SegDataModule(pl.LightningDataModule):
-    def __init__(self, root_dir="data", phase="challenge", batch_size: int = 8):
+    def __init__(self, root_dir="data", phase="public", batch_size: int = 8):
         super().__init__()
         self.root_dir = root_dir
         self.phase = phase

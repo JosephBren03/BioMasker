@@ -9,7 +9,7 @@ def main():
     
     model = SegModel.load_from_checkpoint("checkpoints/epoch=4-val_loss=0.45-val_high_vegetation_IoU=65.14-val_mIoU=66.81.ckpt")
     
-    ds = SegDataset(phase="warmup", split="valid", transform=ToTensorV2())
+    ds = SegDataset(phase="public", split="valid", transform=ToTensorV2())
     model.eval()
     results = {}
     for i, batch in enumerate(ds):
